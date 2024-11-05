@@ -20,5 +20,12 @@ namespace CRUD
         {
             this.ucAgregar.Visible = true;
         }
+
+        protected void btnEditar_Click(object sender, EventArgs e)
+        {
+            int idLocal = int.Parse(((Button)sender).CommandArgument);
+            this.ucAgregar.idLocal = idLocal;
+            this.ucAgregar.Visible = true;
+        }
     }
 }

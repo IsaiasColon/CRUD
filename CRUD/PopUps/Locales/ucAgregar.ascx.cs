@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using CRUD;
 
 namespace CRUD.PopUps.Locales
 {
@@ -15,9 +16,40 @@ namespace CRUD.PopUps.Locales
 
         }
 
+        public int idLocal
+        {
+            set
+            {
+                hidIdLocal.Value = value.ToString();
+                if (hidIdLocal.Value != null || hidIdLocal.Value != "0")
+                {
+                    var local = clase.GetLocal(int.Parse(hidIdLocal.Value));
+
+                    //var local = clase.GetLocal(value);
+                    if (local != null)
+                    {
+                        hidIdLocal.Value = local.Id.ToString();
+                        txtNombre.Value = local.Nombre;
+                        txtDireccion.Text = local.Direccion;
+                        txtTelefono.Value = local.Telefono;
+                        txtEncargado.Value = local.Encargado;
+                        txtDescripcion.Text = local.Descripcion;
+                    }
+                }
+            }
+        }
+
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
-            clase.Crear(txtNombre.Value, txtDireccion.Text, txtTelefono.Value, txtEncargado.Value, txtDescripcion.Text);
+            if (hidIdLocal.Value == "0")
+            {
+                    clase.Crear(txtNombre.Value, txtDireccion.Text, txtTelefono.Value, txtEncargado.Value, txtDescripcion.Text);
+            }
+            else
+            {
+                clase.Editar(int.Parse(hidIdLocal.Value), txtNombre.Value, txtDireccion.Text, txtTelefono.Value, txtEncargado.Value, txtDescripcion.Text);
+            }
+
             this.Visible = false;
             Response.Redirect(Request.RawUrl);
         }

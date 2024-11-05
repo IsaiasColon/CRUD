@@ -35,3 +35,5 @@
         <asp:Label runat="server" ID="lblError" CssClass="center-align"></asp:Label>
     </div>
 </div>
+
+<asp:HiddenField runat="server" ID="hidIdLocal" Value="0" />

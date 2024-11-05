@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TiendasWeb.aspx.cs" Inherits="CRUD.TiendasWeb" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TiendasWeb.aspx.cs" EnableEventValidation="false" Inherits="CRUD.TiendasWeb" %>
 
 <%@ Register Src="~/PopUps/Locales/ucAgregar.ascx" TagPrefix="uc1" TagName="ucAgregar" %>
 
@@ -23,6 +23,7 @@
                         <th>Nombre</th>
                         <th>Descripcion</th>
                         <th>Telefono</th>
+                        <th>Encargado</th>
                         <th>Estado</th>
                     </tr>
                 </thead>
@@ -34,7 +35,11 @@
                                 <td><%# Item.Nombre %></td>
                                 <td><%# Item.Descripcion %></td>
                                 <td><%# Item.Telefono %></td>
-                                <td><%# Item.Estado %></td>
+                                <td><%# Item.Encargado %></td>
+                                <td><%# Item.Estado? "Activo" : "Inactivo" %></td>
+                                <td>
+                                    <asp:Button Text="Editar" runat="server" ID="btnEditar" CommandArgument="<%# Item.Id %>" OnClick="btnEditar_Click" />
+                                </td>
                             </tr>
                         </ItemTemplate>
                     </asp:Repeater>
