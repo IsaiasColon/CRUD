@@ -17,5 +17,27 @@ namespace CRUD
             }
         }
 
+        public void Crear(string nombre, string direccion, string telefono, string encargado, string descripcion)
+        {
+            if (string.IsNullOrWhiteSpace(nombre))
+            {
+                throw new ArgumentException("Debe ingresar el nombre");
+            }
+
+            Locales local = new Locales()
+            {
+                Nombre = nombre,
+                Direccion = direccion,
+                Telefono = telefono,
+                Encargado = encargado,
+                Descripcion = descripcion,
+                Estado = true
+            };
+
+            modelo.Locales.Add(local);
+            modelo.SaveChanges();
+
+        }
+
     }
 }

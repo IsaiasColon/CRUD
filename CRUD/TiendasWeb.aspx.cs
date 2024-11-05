@@ -15,5 +15,10 @@ namespace CRUD
             rptLocales.DataSource = clase.GetLocales;
             rptLocales.DataBind();
         }
+
+        protected void btnAgregar_Click(object sender, EventArgs e)
+        {
+            this.ucAgregar.Visible = true;
+        }
     }
 }

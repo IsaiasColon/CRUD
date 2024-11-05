@@ -75,6 +75,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="estilos.css" />
     <Content Include="Modelo.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Modelo.Context.cs</LastGenOutput>
@@ -85,6 +86,7 @@
       <DependentUpon>Modelo.edmx</DependentUpon>
       <LastGenOutput>Modelo.cs</LastGenOutput>
     </Content>
+    <Content Include="PopUps\Locales\ucAgregar.ascx" />
     <Content Include="TiendasWeb.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -107,6 +109,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Modelo.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="PopUps\Locales\ucAgregar.ascx.cs">
+      <DependentUpon>ucAgregar.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopUps\Locales\ucAgregar.ascx.designer.cs">
+      <DependentUpon>ucAgregar.ascx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TiendasWeb.aspx.cs">

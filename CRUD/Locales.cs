@@ -19,7 +19,7 @@ namespace CRUD
         public string Direccion { get; set; }
         public string Telefono { get; set; }
         public string Encargado { get; set; }
-        public Nullable<bool> Estado { get; set; }
+        public bool Estado { get; set; }
         public string Descripcion { get; set; }
     }
 }
